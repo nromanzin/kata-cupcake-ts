@@ -51,4 +51,17 @@ describe('Kata', () => {
     expect(bundle.name()).toBe('🧁, 🍪');
     expect(bundle.price()).toBeCloseTo(2.7);
   });
+  test('We can build a Bundle with 2 Cupcake and 1 Cookie and check price or description', () => {
+    const bundle = new Bundle([new Cupcake(), new Cupcake(), new Cookie()]);
+    expect(bundle.name()).toBe('🧁, 🧁, 🍪');
+    expect(bundle.price()).toBeCloseTo(3.6);
+  });
+  test('We can build a bundle with 1 bundle of 2 cakes and 1 Cupcake and check price or description', () => {
+    const bundle = new Bundle([
+      new Bundle([new Cookie(), new Cookie()]),
+      new Cupcake(),
+    ]);
+    expect(bundle.name()).toBe('🍪, 🍪, 🧁');
+    expect(bundle.price()).toBeCloseTo(4.5);
+  });
 });
