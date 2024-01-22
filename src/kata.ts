@@ -41,3 +41,12 @@ export class ChocolateTopping extends Topping {
     return 0.1;
   }
 }
+
+export class PeanutTopping extends Topping {
+  toppingName(): string {
+    return '🥜';
+  }
+  toppingPrice(): number {
+    return 0.2;
+  }
+}
