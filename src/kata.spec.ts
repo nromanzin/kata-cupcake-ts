@@ -23,4 +23,10 @@ describe('Kata', () => {
     );
     expect(cookieWithChocolateAndPeanut.name()).toBe('🍪 with 🍫 and 🥜');
   });
+  test('The name function should return “🍪 with 🥜 and 🍫”', () => {
+    const cookieWithChocolateAndPeanut = new ChocolateTopping(
+      new PeanutTopping(new Cookie())
+    );
+    expect(cookieWithChocolateAndPeanut.name()).toBe('🍪 with 🥜 and 🍫');
+  });
 });
