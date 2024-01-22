@@ -1,4 +1,10 @@
-import { ChocolateTopping, Cookie, Cupcake, PeanutTopping } from './kata';
+import {
+  Bundle,
+  ChocolateTopping,
+  Cookie,
+  Cupcake,
+  PeanutTopping,
+} from './kata';
 
 describe('Kata', () => {
   test('The name function should return “🧁”', () => {
@@ -34,5 +40,10 @@ describe('Kata', () => {
     );
     expect(cookieWithPeanutAndChocolate.name()).toBe('🍪 with 🥜 and 🍫');
     expect(cookieWithPeanutAndChocolate.price()).toBeCloseTo(2.3);
+  });
+  test('We can build a Bundle with 1 Cupcake and check price or description', () => {
+    const bundle = new Bundle([new Cupcake()]);
+    expect(bundle.name()).toBe('🧁');
+    expect(bundle.price()).toBeCloseTo(0.9);
   });
 });

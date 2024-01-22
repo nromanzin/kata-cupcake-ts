@@ -55,3 +55,16 @@ export class PeanutTopping extends Topping {
     return 0.2;
   }
 }
+
+export class Bundle implements Cake {
+  constructor(private cakes: (Cake | Bundle)[]) {}
+  name(): string {
+    return this.cakes.flatMap((cake: Cake) => cake.name()).join(', ');
+  }
+  price(): number {
+    return (
+      0.9 *
+      this.cakes.flatMap((cake: Cake) => cake.price()).reduce((a, b) => a + b)
+    );
+  }
+}
