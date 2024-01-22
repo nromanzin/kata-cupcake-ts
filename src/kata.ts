@@ -24,10 +24,15 @@ export class Cookie {
 export abstract class Topping implements Cake {
   constructor(private wrappee: Cake) {}
   name(): string {
-    return this.wrappee.name() + ' with ' + this.toppingName();
+    return (
+      this.wrappee.name() + ' ' + this.separator() + ' ' + this.toppingName()
+    );
   }
   price(): number {
     return this.wrappee.price() + this.toppingPrice();
+  }
+  private separator(): string {
+    return this.wrappee.name().includes('with') ? 'and' : 'with';
   }
   abstract toppingName(): string;
   abstract toppingPrice(): number;
