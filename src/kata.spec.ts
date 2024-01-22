@@ -46,4 +46,9 @@ describe('Kata', () => {
     expect(bundle.name()).toBe('🧁');
     expect(bundle.price()).toBeCloseTo(0.9);
   });
+  test('We can build a Bundle with 1 Cupcake and 1 Cookie and check price or description', () => {
+    const bundle = new Bundle([new Cupcake(), new Cookie()]);
+    expect(bundle.name()).toBe('🧁, 🍪');
+    expect(bundle.price()).toBeCloseTo(2.7);
+  });
 });
