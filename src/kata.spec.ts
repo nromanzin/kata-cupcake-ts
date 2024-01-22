@@ -13,4 +13,8 @@ describe('Kata', () => {
     const cupcakeWithChoco = new ChocolateTopping(new Cupcake());
     expect(cupcakeWithChoco.name()).toBe('🧁 with 🍫');
   });
+  test('The name function should return “🍪 with 🍫”', () => {
+    const cookieWithChoco = new ChocolateTopping(new Cookie());
+    expect(cookieWithChoco.name()).toBe('🍪 with 🍫');
+  });
 });
