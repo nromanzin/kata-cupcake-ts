@@ -3,3 +3,9 @@ export class Cupcake {
     return '🧁';
   }
 }
+
+export class Cookie {
+  name(): string {
+    return '🍪';
+  }
+}
