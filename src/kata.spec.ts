@@ -1,4 +1,4 @@
-import { Cookie, Cupcake } from './kata';
+import { ChocolateTopping, Cookie, Cupcake } from './kata';
 
 describe('Kata', () => {
   test('The name function should return “🧁”', () => {
