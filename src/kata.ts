@@ -57,14 +57,20 @@ export class PeanutTopping extends Topping {
 }
 
 export class Bundle implements Cake {
-  constructor(private cakes: (Cake | Bundle)[]) {}
+  constructor(private items: (Cake | Bundle)[]) {
+    const bundles = this.items.filter(
+      (item: Bundle | Cake) => item instanceof Bundle
+    ) as Bundle[];
+    bundles.map((bundle) => (bundle.isRoot = false));
+  }
+  isRoot = true;
   name(): string {
-    return this.cakes.flatMap((cake: Cake) => cake.name()).join(', ');
+    return this.items.flatMap((cake: Cake) => cake.name()).join(', ');
   }
   price(): number {
     return (
-      0.9 *
-      this.cakes.flatMap((cake: Cake) => cake.price()).reduce((a, b) => a + b)
+      (this.isRoot ? 0.9 : 1) *
+      this.items.flatMap((cake: Cake) => cake.price()).reduce((a, b) => a + b)
     );
   }
 }
